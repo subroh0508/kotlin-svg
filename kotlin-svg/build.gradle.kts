@@ -11,6 +11,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+
+                api(kotlinx("html", "common"))
             }
         }
         val commonTest by getting {
@@ -22,6 +24,8 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
+
+                api(kotlinx("html", "jvm"))
             }
         }
         val jvmTest by getting {
@@ -33,6 +37,8 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
+
+                api(kotlinx("html", "js"))
             }
         }
         val jsTest by getting {

@@ -7,6 +7,8 @@ import net.subroh0508.kotlinsvg.attributeSetStringStringSet
 import net.subroh0508.kotlinsvg.attributeStringString
 import net.subroh0508.kotlinsvg.attributeWhiteSpaceEnumWhiteSpaceValues
 
+/* Ref. https://www.w3.org/TR/SVG2/struct.html#CommonAttributes */
+
 interface CommonAttributes : Tag
 
 var CommonAttributes.classes: Set<String>

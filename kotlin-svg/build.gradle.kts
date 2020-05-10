@@ -13,6 +13,7 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
 
                 api(kotlinx("html", "common"))
+                api(wrappers("css"))
             }
         }
         val commonTest by getting {
@@ -26,6 +27,7 @@ kotlin {
                 implementation(kotlin("stdlib-jdk8"))
 
                 api(kotlinx("html", "jvm"))
+                api(wrappers("css", "jvm"))
             }
         }
         val jvmTest by getting {
@@ -39,6 +41,7 @@ kotlin {
                 implementation(kotlin("stdlib-js"))
 
                 api(kotlinx("html", "js"))
+                api(wrappers("css", "js"))
             }
         }
         val jsTest by getting {

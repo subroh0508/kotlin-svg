@@ -1,6 +1,3 @@
-group = Packages.group
-version = Packages.version
-
 plugins {
     kotlin("multiplatform")
     `publishing-conventions`

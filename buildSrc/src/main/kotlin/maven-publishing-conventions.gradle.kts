@@ -6,13 +6,6 @@ plugins {
     `maven-publish`
 }
 
-private val localProperties = Properties().apply {
-    file("../local.properties").inputStream().use { load(it) }
-}
-
-private val bintrayUser = localProperties["bintray.user"] as String
-private val bintrayKey = localProperties["bintray.key"] as String
-
 if (isKotlinJsProject) {
     tasks.named<Zip>("JsJar") {
         val dependencyJson = temporaryDir.resolve("package.json")
@@ -21,15 +14,15 @@ if (isKotlinJsProject) {
 }
 
 bintray {
-    user = bintrayUser
-    key = bintrayKey
+    user = localProperties["bintray.user"] as String
+    key = localProperties["bintray.key"] as String
     publish = false
     pkg.run {
         repo = "maven"
         name = project.name
         setLicenses("MIT")
         vcsUrl = "https://github.com/subroh0508/kotlin-svg.git"
-        version.name = Packages.version
+        version.name = project.version.toString()
     }
 
     when {
@@ -52,7 +45,7 @@ publishing.publications {
 
                 groupId = project.group.toString()
                 artifactId = "${project.name}$artifactName"
-                version = Packages.version
+                version = project.version.toString()
             }
 
         isKotlinJsProject ->
@@ -60,7 +53,7 @@ publishing.publications {
                 from(components["kotlin"])
                 groupId = project.group.toString()
                 artifactId = "${rootProject.name}-${project.name}"
-                version = Packages.version
+                version = project.version.toString()
 
                 artifact(tasks.getByName<Zip>("JsSourcesJar"))
             }

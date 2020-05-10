@@ -3,14 +3,13 @@ version = Packages.version
 
 plugins {
     kotlin("multiplatform")
+    `publishing-conventions`
 }
 
 kotlin {
     jvm()
-    js {
-        browser {}
-        nodejs {}
-    }
+    js { browser {} }
+
     sourceSets {
         val commonMain by getting {
             dependencies {

@@ -17,4 +17,5 @@ fun version(target: String): String = props.getProperty("${target}.version")
 dependencies {
     implementation(kotlin("gradle-plugin", version("kotlin")))
     implementation("com.jfrog.bintray.gradle:gradle-bintray-plugin:${version("bintray-plugin")}")
+    implementation("org.json:json:${version("json")}")
 }

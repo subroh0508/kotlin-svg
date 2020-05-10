@@ -1,7 +1,7 @@
 import org.gradle.api.Project
 
-internal fun Project.prop(propertyName: String) = property(propertyName) as String
+internal val Project.isKotlinMultiplatformProject: Boolean
+    get() = plugins.hasPlugin("org.jetbrains.kotlin.multiplatform")
 
-internal fun Project.version(target: String) = project.prop("$target.version")
-
-val Project.kotlinVersion get() = version("kotlin")
+internal val Project.isKotlinJsProject: Boolean
+    get() = plugins.hasPlugin("org.jetbrains.kotlin.js")

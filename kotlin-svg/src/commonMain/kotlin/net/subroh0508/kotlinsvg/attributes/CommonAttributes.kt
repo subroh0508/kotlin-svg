@@ -23,10 +23,6 @@ var CommonAttributes.lang: String
     get() = attributeStringString[this, "lang"]
     set(newValue) { attributeStringString[this, "lang"] = newValue }
 
-var CommonAttributes.whiteSpace: WhiteSpace
-    get() = attributeWhiteSpaceEnumWhiteSpaceValues[this, "white-space"]
-    set(newValue) { attributeWhiteSpaceEnumWhiteSpaceValues[this, "white-space"] = newValue }
-
 var CommonAttributes.style: String
     get() = attributeStringString[this, "style"]
     set(newValue) { attributeStringString[this, "style"] = newValue }

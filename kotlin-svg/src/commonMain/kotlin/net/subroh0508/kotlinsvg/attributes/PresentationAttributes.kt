@@ -1,6 +1,7 @@
 package net.subroh0508.kotlinsvg.attributes
 
 import kotlinx.css.*
+import kotlinx.css.properties.TextDecoration
 import kotlinx.html.Tag
 import net.subroh0508.kotlinsvg.*
 import net.subroh0508.kotlinsvg.attributeLinearDimensionLinearDimensionValues
@@ -9,7 +10,7 @@ import net.subroh0508.kotlinsvg.attributeTextOverflowEnumTextOverflowValues
 import net.subroh0508.kotlinsvg.attributeWhiteSpaceEnumWhiteSpaceValues
 import kotlin.Float
 
-/* ref. https://www.w3.org/TR/SVG2/text.html#TextProperties */
+/* ref. https://www.w3.org/TR/SVG2/styling.html#TermPresentationAttribute */
 
 interface PresentationAttributes : Tag
 
@@ -99,90 +100,105 @@ var PresentationAttributes.fontVariant: FontVariants
 var PresentationAttributes.fontWeight: FontWeight
     get() = attributeFontWeightFontWeightValues[this, "font-weight"]
     set(newValue) { attributeFontWeightFontWeightValues[this, "font-weight"] = newValue }
-var PresentationAttributes.image-rendering: String
-    get() = [this, "image-rendering"]
-    set(newValue) { [this, "image-rendering"] = newValue }
+var PresentationAttributes.imageRendering: ImageRendering
+    get() = attributeImageRenderingEnumImageRenderingValues[this, "image-rendering"]
+    set(newValue) { attributeImageRenderingEnumImageRenderingValues[this, "image-rendering"] = newValue }
 var PresentationAttributes.letterSpacing: LinearDimension
     get() = attributeLinearDimensionLinearDimensionValues[this, "letter-spacing"]
     set(newValue) { attributeLinearDimensionLinearDimensionValues[this, "letter-spacing"] = newValue }
-var PresentationAttributes.lighting-color: String
-    get() = [this, "lighting-color"]
-    set(newValue) { [this, "lighting-color"] = newValue }
-var PresentationAttributes.marker-end: String
-    get() = [this, "marker-end"]
-    set(newValue) { [this, "marker-end"] = newValue }
-var PresentationAttributes.marker-mid: String
-    get() = [this, "marker-mid"]
-    set(newValue) { [this, "marker-mid"] = newValue }
-var PresentationAttributes.marker-start: String
-    get() = [this, "marker-start"]
-    set(newValue) { [this, "marker-start"] = newValue }
+var PresentationAttributes.lightingColor: Color
+    get() = attributeColorColorValues[this, "lighting-color"]
+    set(newValue) { attributeColorColorValues[this, "lighting-color"] = newValue }
+/*
+var PresentationAttributes.markerEnd: String
+    get() = attributeMarkerMakerValues[this, "marker-end"]
+    set(newValue) { attributeMarkerMakerValues[this, "marker-end"] = newValue }
+var PresentationAttributes.markerMid: String
+    get() = attributeMarkerMakerValues[this, "marker-mid"]
+    set(newValue) { attributeMarkerMakerValues[this, "marker-mid"] = newValue }
+var PresentationAttributes.markerStart: String
+    get() = attributeMarkerMakerValues[this, "marker-start"]
+    set(newValue) { attributeMarkerMakerValues[this, "marker-start"] = newValue }
+*/
+
+/*
 var PresentationAttributes.mask: String
-    get() = [this, "mask"]
-    set(newValue) { [this, "mask"] = newValue }
-var PresentationAttributes.opacity: String
-    get() = [this, "opacity"]
-    set(newValue) { [this, "opacity"] = newValue }
-var PresentationAttributes.overflow: String
-    get() = [this, "overflow"]
-    set(newValue) { [this, "overflow"] = newValue }
-var PresentationAttributes.paint-order: String
-    get() = [this, "paint-order"]
-    set(newValue) { [this, "paint-order"] = newValue }
-var PresentationAttributes.pointer-events: String
-    get() = [this, "pointer-events"]
-    set(newValue) { [this, "pointer-events"] = newValue }
-var PresentationAttributes.shape-rendering: String
-    get() = [this, "shape-rendering"]
-    set(newValue) { [this, "shape-rendering"] = newValue }
-var PresentationAttributes.stop-color: String
-    get() = [this, "stop-color"]
-    set(newValue) { [this, "stop-color"] = newValue }
-var PresentationAttributes.stop-opacity: String
-    get() = [this, "stop-opacity"]
-    set(newValue) { [this, "stop-opacity"] = newValue }
+    get() = attributeMaskMaskValues[this, "mask"]
+    set(newValue) { attributeMaskMaskValues[this, "mask"] = newValue }
+*/
+var PresentationAttributes.opacity: Float
+    get() = attributeFloatFloat[this, "opacity"]
+    set(newValue) { attributeFloatFloat[this, "opacity"] = newValue }
+var PresentationAttributes.overflow: Overflow
+    get() = attributeOverflowEnumOverflowValues[this, "overflow"]
+    set(newValue) { attributeOverflowEnumOverflowValues[this, "overflow"] = newValue }
+// TODO Use enum class PaintOrder
+var PresentationAttributes.paintOrder: Set<String>
+    get() = attributeSetStringStringSet[this, "paint-order"]
+    set(newValue) { attributeSetStringStringSet[this, "paint-order"] = newValue }
+var PresentationAttributes.pointerEvents: PointerEvents
+    get() = attributePointerEventsEnumPointerEventsValues[this, "pointer-events"]
+    set(newValue) { attributePointerEventsEnumPointerEventsValues[this, "pointer-events"] = newValue }
+var PresentationAttributes.shapeRendering: ShapeRendering
+    get() = attributeShapeRenderingEnumShapeRenderingValues[this, "shape-rendering"]
+    set(newValue) { attributeShapeRenderingEnumShapeRenderingValues[this, "shape-rendering"] = newValue }
+var PresentationAttributes.stopColor: Color
+    get() = attributeColorColorValues[this, "stop-color"]
+    set(newValue) { attributeColorColorValues[this, "stop-color"] = newValue }
+var PresentationAttributes.stopOpacity: Float
+    get() = attributeFloatFloat[this, "stop-opacity"]
+    set(newValue) { attributeFloatFloat[this, "stop-opacity"] = newValue }
 var PresentationAttributes.stroke: Color
     get() = attributeColorColorValues[this, "stroke"]
     set(newValue) { attributeColorColorValues[this, "stroke"] = newValue }
-var PresentationAttributes.strokeDasharray: String
-    get() = [this, "stroke-dasharray"]
-    set(newValue) { [this, "stroke-dasharray"] = newValue }
-var PresentationAttributes.strokeDashoffset: String
-    get() = [this, "stroke-dashoffset"]
-    set(newValue) { [this, "stroke-dashoffset"] = newValue }
-var PresentationAttributes.strokeLinecap: String
-    get() = [this, "stroke-linecap"]
-    set(newValue) { [this, "stroke-linecap"] = newValue }
-var PresentationAttributes.strokeLinejoin: String
-    get() = [this, "stroke-linejoin"]
-    set(newValue) { [this, "stroke-linejoin"] = newValue }
-var PresentationAttributes.strokeMiterlimit: String
-    get() = [this, "stroke-miterlimit"]
-    set(newValue) { [this, "stroke-miterlimit"] = newValue }
-var PresentationAttributes.strokeOpacity: String
-    get() = [this, "stroke-opacity"]
-    set(newValue) { [this, "stroke-opacity"] = newValue }
-var PresentationAttributes.strokeWidth: String
-    get() = [this, "stroke-width"]
-    set(newValue) { [this, "stroke-width"] = newValue }
+/*
+var PresentationAttributes.strokeDasharray: StrokeDashArray
+    get() = attributeStrokeDashArrayValues[this, "stroke-dasharray"]
+    set(newValue) { attributeStrokeDashArrayValues[this, "stroke-dasharray"] = newValue }
+*/
+var PresentationAttributes.strokeDashoffset: LinearDimension
+    get() = attributeLinearDimensionLinearDimensionValues[this, "stroke-dashoffset"]
+    set(newValue) { attributeLinearDimensionLinearDimensionValues[this, "stroke-dashoffset"] = newValue }
+var PresentationAttributes.strokeLinecap: StrokeLinecap
+    get() = attributeStrokeLinecapEnumStrokeLinecapValues[this, "stroke-linecap"]
+    set(newValue) { attributeStrokeLinecapEnumStrokeLinecapValues[this, "stroke-linecap"] = newValue }
+var PresentationAttributes.strokeLinejoin: StrokeLinejoin
+    get() = attributeStrokeLinejoinEnumStrokeLinejoinValues[this, "stroke-linejoin"]
+    set(newValue) { attributeStrokeLinejoinEnumStrokeLinejoinValues[this, "stroke-linejoin"] = newValue }
+var PresentationAttributes.strokeMiterlimit: Float
+    get() = attributeFloatFloat[this, "stroke-miterlimit"]
+    set(newValue) { attributeFloatFloat[this, "stroke-miterlimit"] = newValue }
+var PresentationAttributes.strokeOpacity: Float
+    get() = attributeFloatFloat[this, "stroke-opacity"]
+    set(newValue) { attributeFloatFloat[this, "stroke-opacity"] = newValue }
+var PresentationAttributes.strokeWidth: LinearDimension
+    get() = attributeLinearDimensionLinearDimensionValues[this, "stroke-width"]
+    set(newValue) { attributeLinearDimensionLinearDimensionValues[this, "stroke-width"] = newValue }
 var PresentationAttributes.textAnchor: TextAnchor
     get() = attributeTextAnchorEnumTextAnchorValues[this, "text-anchor"]
     set(newValue) { attributeTextAnchorEnumTextAnchorValues[this, "text-anchor"] = newValue }
-var PresentationAttributes.text-decoration: String
-    get() = [this, "text-decoration"]
-    set(newValue) { [this, "text-decoration"] = newValue }
+var PresentationAttributes.textDecoration: TextDecoration
+    get() = attributeTextDecorationValues[this, "text-decoration"]
+    set(newValue) { attributeTextDecorationValues[this, "text-decoration"] = newValue }
 var PresentationAttributes.textOverflow: TextOverflow
     get() = attributeTextOverflowEnumTextOverflowValues[this, "text-overflow"]
     set(newValue) { attributeTextOverflowEnumTextOverflowValues[this, "text-overflow"] = newValue }
-var PresentationAttributes.text-rendering: String
-    get() = [this, "text-rendering"]
-    set(newValue) { [this, "text-rendering"] = newValue }
-var PresentationAttributes.unicode-bidi: String
-    get() = [this, "unicode-bidi"]
-    set(newValue) { [this, "unicode-bidi"] = newValue }
-var PresentationAttributes.vector-effect: String
-    get() = [this, "vector-effect"]
-    set(newValue) { [this, "vector-effect"] = newValue }
+
+/*
+var PresentationAttributes.textRendering: String
+    get() = attributeTextRenderingEnumTextRenderingValues[this, "text-rendering"]
+    set(newValue) { attributeTextRenderingEnumTextRenderingValues[this, "text-rendering"] = newValue }
+*/
+
+/*
+var PresentationAttributes.unicodeBidi: UnicodeBidi
+    get() = attributeUnicodeBidiEnumUnicodeBidiValues[this, "unicode-bidi"]
+    set(newValue) { attributeUnicodeBidiEnumUnicodeBidiValues[this, "unicode-bidi"] = newValue }
+*/
+
+var PresentationAttributes.vectorEffect: VectorEffect
+    get() = attributeVectorEffectEnumVectorEffectValues[this, "vector-effect"]
+    set(newValue) { attributeVectorEffectEnumVectorEffectValues[this, "vector-effect"] = newValue }
 var PresentationAttributes.visibility: Visibility
     get() = attributeVisibilityEnumVisibilityValues[this, "visibility"]
     set(newValue) { attributeVisibilityEnumVisibilityValues[this, "visibility"] = newValue }
